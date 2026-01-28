@@ -1,3 +1,6 @@
+/* Google Fonts Import - Must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @import "tailwindcss";
 
 @theme {
@@ -18,9 +21,6 @@
   --animate-slideUp: slideUp 0.6s ease-out;
   --animate-zoomIn: zoomIn 1.5s ease-out;
 }
-
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* Global Styles */
 * {
@@ -150,17 +150,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-  padding: 6rem 1.5rem;
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 5rem 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding: 8rem 2rem;
+    padding: 6rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 10rem 3rem;
+    padding: 8rem 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-padding {
+    padding: 10rem 4rem;
   }
 }
