@@ -6,42 +6,59 @@ import './About.css';
  */
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-[#121212]">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section id="about" className="about">
+      <div className="container">
+        <div className="grid">
           {/* Image Column */}
           <motion.div
-            className="relative"
+            className="imageColumn"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            <div className="relative overflow-hidden rounded-lg">
+            <div className="imageWrapper">
               <img
                 src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&q=80"
                 alt="Photographer portrait"
-                className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
+                className="image"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="imageOverlay" />
+              <div className="imageGlow" />
             </div>
 
             {/* Floating Stats */}
             <motion.div
-              className="absolute -bottom-6 -right-6 glass-effect rounded-lg p-6 max-w-xs"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              className="statsCard"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
             >
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <div>
-                  <p className="text-3xl font-bold text-[#d4af37]">500+</p>
-                  <p className="text-sm text-gray-400">Projects</p>
+              <div className="statsGrid">
+                <div className="statItem">
+                  <motion.p 
+                    className="statNumber"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                  >
+                    500+
+                  </motion.p>
+                  <p className="statLabel">Projects</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold text-[#d4af37]">10+</p>
-                  <p className="text-sm text-gray-400">Years</p>
+                <div className="statItem">
+                  <motion.p 
+                    className="statNumber"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                  >
+                    10+
+                  </motion.p>
+                  <p className="statLabel">Years</p>
                 </div>
               </div>
             </motion.div>
@@ -49,78 +66,121 @@ const About = () => {
 
           {/* Content Column */}
           <motion.div
+            className="contentColumn"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gradient mb-6">
+            <motion.h2 
+              className="title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               About Me
-            </h2>
+            </motion.h2>
             
-            <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p className="text-base sm:text-lg">
-                Hello! I'm <span className="text-white font-semibold">सई PHOTOGRAPHY</span>, 
+            <div className="textContent">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Hello! I'm <span className="highlight">सई PHOTOGRAPHY</span>, 
                 a passionate photographer based in Los Angeles with over a decade of experience 
                 capturing life's most beautiful moments.
-              </p>
+              </motion.p>
               
-              <p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 My journey into photography began with a simple film camera and an insatiable 
                 curiosity about how light shapes our world. Today, I specialize in wedding, 
                 portrait, and commercial photography, bringing that same wonder to every shoot.
-              </p>
+              </motion.p>
               
-              <p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
                 What drives me is the privilege of preserving memories and telling stories 
                 through imagery. Whether it's the intimate moments of a wedding day or the 
                 bold vision of a fashion campaign, I approach each project with creativity, 
                 professionalism, and heart.
-              </p>
+              </motion.p>
             </div>
 
             {/* Pull Quote */}
             <motion.blockquote
-              className="border-l-4 border-[#d4af37] pl-6 my-8 italic text-xl text-gray-400"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              className="quote"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
             >
-              "Photography is the art of frozen time... the ability to store emotion and 
-              feelings within a frame."
+              <span className="quoteIcon">"</span>
+              Photography is the art of frozen time... the ability to store emotion and 
+              feelings within a frame.
+              <span className="quoteIcon">"</span>
             </motion.blockquote>
 
             {/* Achievements */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            <div className="achievements">
               <motion.div
-                className="bg-white/5 rounded-lg p-4"
-                whileHover={{ scale: 1.05 }}
+                className="achievementCard"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(212, 175, 55, 0.2)" }}
               >
-                <p className="text-[#d4af37] font-semibold mb-1">Featured In</p>
-                <p className="text-sm text-gray-400">Vogue, Harper's Bazaar</p>
+                <p className="achievementTitle">Featured In</p>
+                <p className="achievementText">Vogue, Harper's Bazaar</p>
               </motion.div>
               <motion.div
-                className="bg-white/5 rounded-lg p-4"
-                whileHover={{ scale: 1.05 }}
+                className="achievementCard"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(212, 175, 55, 0.2)" }}
               >
-                <p className="text-[#d4af37] font-semibold mb-1">Awards</p>
-                <p className="text-sm text-gray-400">WPPI, IPA Winner</p>
+                <p className="achievementTitle">Awards</p>
+                <p className="achievementText">WPPI, IPA Winner</p>
               </motion.div>
             </div>
 
             {/* CTA */}
-            <motion.div className="mt-8">
-              <a
+            <motion.div 
+              className="ctaSection"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+            >
+              <motion.a
                 href="#contact"
-                className="inline-block px-8 py-4 bg-[#d4af37] text-[#0a0a0a] font-semibold rounded-lg hover:bg-[#c4a037] transition-all duration-300"
+                className="ctaLink"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Let's Create Together
-              </a>
+                <span className="ctaText">Let's Create Together</span>
+                <svg className="ctaArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>
