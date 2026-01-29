@@ -48,9 +48,32 @@ export const formatDate = (dateString) => {
  * @param {string} elementId - ID of element to scroll to
  */
 export const scrollToElement = (elementId) => {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Try to scroll immediately
+  const tryScroll = () => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const headerOffset = 80; // Fixed header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      return true;
+    }
+    return false;
+  };
+
+  // Try immediately
+  if (!tryScroll()) {
+    // If element not found, wait a bit for lazy loading and try again
+    setTimeout(() => {
+      if (!tryScroll()) {
+        // Last attempt after more time
+        setTimeout(tryScroll, 300);
+      }
+    }, 100);
   }
 };
 

@@ -51,27 +51,27 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="section-padding bg-[#121212]">
-      <div className="container mx-auto">
+    <section className="testimonials">
+      <div className="container">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="sectionHeader"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-4">
+          <h2 className="title">
             Client Love
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="description">
             Don't just take my word for it - hear what my clients have to say.
           </p>
         </motion.div>
 
         {/* Testimonial Slider */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative min-h-[350px] sm:min-h-[400px] flex items-center">
+        <div className="sliderContainer">
+          <div className="sliderWrapper">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -84,30 +84,30 @@ const Testimonials = () => {
                   x: { type: 'spring', stiffness: 300, damping: 30 },
                   opacity: { duration: 0.2 }
                 }}
-                className="w-full"
+                className="slideContent"
               >
-                <div className="glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
+                <div className="card">
                   {/* Quote Mark */}
                   <motion.div
-                    className="text-4xl sm:text-5xl md:text-6xl text-[#d4af37] opacity-50 font-serif mb-4 sm:mb-6"
+                    className="quoteMark"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    "
+                    “
                   </motion.div>
 
                   {/* Testimonial Text */}
-                  <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-6 sm:mb-8 italic">
+                  <p className="testimonialText">
                     {currentTestimonial.text}
                   </p>
 
                   {/* Stars */}
-                  <div className="flex items-center justify-center mb-6">
+                  <div className="stars">
                     {[...Array(currentTestimonial.rating)].map((_, i) => (
                       <motion.svg
                         key={i}
-                        className="w-6 h-6 text-[#d4af37]"
+                        className="star"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         initial={{ scale: 0, rotate: -180 }}
@@ -120,20 +120,20 @@ const Testimonials = () => {
                   </div>
 
                   {/* Client Info */}
-                  <div className="flex items-center justify-center">
+                  <div className="clientInfo">
                     <motion.img
                       src={currentTestimonial.image}
                       alt={currentTestimonial.name}
-                      className="w-16 h-16 rounded-full object-cover mr-4 border-2 border-[#d4af37]"
+                      className="clientImage"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.4, delay: 0.4 }}
                     />
-                    <div className="text-left">
-                      <p className="text-white font-semibold text-lg">
+                    <div className="clientDetails">
+                      <p className="clientName">
                         {currentTestimonial.name}
                       </p>
-                      <p className="text-gray-400 text-sm">
+                      <p className="clientRole">
                         {currentTestimonial.role}
                       </p>
                     </div>
@@ -145,11 +145,11 @@ const Testimonials = () => {
             {/* Navigation Arrows */}
             <button
               onClick={handlePrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 rounded-full glass-effect flex items-center justify-center hover:bg-[#d4af37] hover:text-[#0a0a0a] transition-all duration-300 group"
+              className="navButton navButtonLeft"
               aria-label="Previous testimonial"
             >
               <svg
-                className="w-6 h-6"
+                className="navIcon"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -165,11 +165,11 @@ const Testimonials = () => {
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 rounded-full glass-effect flex items-center justify-center hover:bg-[#d4af37] hover:text-[#0a0a0a] transition-all duration-300 group"
+              className="navButton navButtonRight"
               aria-label="Next testimonial"
             >
               <svg
-                className="w-6 h-6"
+                className="navIcon"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -185,15 +185,13 @@ const Testimonials = () => {
           </div>
 
           {/* Dots Navigation */}
-          <div className="flex justify-center space-x-2 mt-8">
+          <div className="dotsContainer">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-[#d4af37] w-8'
-                    : 'bg-white/20 hover:bg-white/40'
+                className={`dot ${
+                  index === currentIndex ? 'dotActive' : 'dotInactive'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

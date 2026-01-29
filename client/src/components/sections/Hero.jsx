@@ -121,7 +121,6 @@ const Hero = () => {
           }}
         >
           <div className="scrollContent" onClick={handleScrollClick}>
-            <span className="scrollText">Scroll to explore</span>
             <svg 
               className="scrollIcon"
               fill="none" 

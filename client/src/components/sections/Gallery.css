@@ -40,9 +40,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 3.5rem;
   padding: 0 1rem;
+}
+
+@media (max-width: 640px) {
+  .filterTabs {
+    gap: 0.5rem;
+  }
+  
+  .filterButton:first-child {
+    flex-basis: 100%;
+    margin-bottom: 0.25rem;
+  }
 }
 
 .filterButton {
@@ -57,6 +68,13 @@
   position: relative;
   overflow: hidden;
   will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .filterButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
 }
 
 .filterButton::before {

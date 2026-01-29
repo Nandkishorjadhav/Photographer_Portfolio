@@ -56,89 +56,26 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="grid">
-          {/* Brand Column */}
-          <div>
-            <h3 className="brandTitle">सई PHOTOGRAPHY</h3>
-            <p className="brandDescription">
-              Capturing moments that tell your unique story. Professional photography services for weddings, portraits, and commercial projects.
-            </p>
-            <div className="socialLinks">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="socialLink"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links Column */}
-          <div>
-            <h4 className="sectionTitle">Quick Links</h4>
-            <ul className="linksList">
-              {quickLinks.map((link) => (
-                <li key={link.label} className="linkItem">
-                  <motion.a
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                    className="link"
-                    whileHover={{ x: 5 }}
-                  >
-                    {link.label}
-                  </motion.a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Column */}
-          <div>
-            <h4 className="sectionTitle">Get In Touch</h4>
-            <div className="contactInfo">
-              <p>
-                <span className="contactLabel">Email:</span>{' '}
-                <a href="mailto:hello@yourname.com" className="contactLink">
-                  hello@yourname.com
-                </a>
-              </p>
-              <p>
-                <span className="contactLabel">Phone:</span>{' '}
-                <a href="tel:+11234567890" className="contactLink">
-                  +1 (123) 456-7890
-                </a>
-              </p>
-              <p>
-                <span className="contactLabel">Location:</span> Los Angeles, CA
-              </p>
-            </div>
+        <div className="footerContent">
+          <h3 className="brandTitle">सई PHOTOGRAPHY</h3>
+          <div className="socialLinks">
+            {socialLinks.map((social) => (
+              <motion.a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="socialLink"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={social.name}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
           </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="bottomBar">
-          <div className="bottomContent">
-            <p className="copyright">
-              © {currentYear} Your Name Photography. All rights reserved.
-            </p>
-            <div className="legalLinks">
-              <a href="#" className="legalLink">
-                Privacy Policy
-              </a>
-              <a href="#" className="legalLink">
-                Terms of Service
-              </a>
-            </div>
-          </div>
-        </div>
+        <p className="copyright">© {currentYear} Your Name Photography. All rights reserved.</p>
       </div>
     </footer>
   );

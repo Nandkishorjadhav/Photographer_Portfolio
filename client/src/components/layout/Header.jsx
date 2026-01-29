@@ -31,9 +31,16 @@ const Header = () => {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    const id = href.replace('#', '');
-    scrollToElement(id);
+    e.stopPropagation();
+    
+    // Close menu first
     setIsMenuOpen(false);
+    
+    // Then scroll after a brief delay to ensure menu closes
+    setTimeout(() => {
+      const id = href.replace('#', '');
+      scrollToElement(id);
+    }, 100);
   };
 
   const headerClasses = `header ${isScrolled ? 'headerScrolled' : 'headerDefault'}`;
