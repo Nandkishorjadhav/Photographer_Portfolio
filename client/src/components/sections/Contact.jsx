@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Input from '../common/Input';
 import Button from '../common/Button';
+import './Contact.css';
 
 /**
  * Contact Section with form

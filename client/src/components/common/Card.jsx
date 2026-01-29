@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import './Card.css';
 
 /**
- * Card component with hover effects
+ * Card component with hover effects and scoped styling
  */
 const Card = ({ 
   children, 
@@ -11,24 +12,30 @@ const Card = ({
   onClick,
   ...props 
 }) => {
-  const baseStyles = 'bg-[#121212] rounded-lg overflow-hidden border border-white/10';
+  const cardClasses = `card ${onClick ? 'clickable' : ''} ${className}`;
   
   const hoverAnimation = hover ? {
-    whileHover: { 
-      y: -8,
-      boxShadow: '0 20px 40px rgba(212, 175, 55, 0.1)'
-    },
-    transition: { duration: 0.3 }
+    transition: { 
+      type: 'spring',
+      stiffness: 300,
+      damping: 20
+    }
   } : {};
 
   return (
     <motion.div
-      className={`${baseStyles} ${className} ${onClick ? 'cursor-pointer' : ''}`}
+      className={cardClasses}
       onClick={onClick}
       {...hoverAnimation}
       {...props}
     >
-      {children}
+      {/* Gradient overlay */}
+      <div className="gradientOverlay" />
+      
+      {/* Content */}
+      <div className="cardContent">
+        {children}
+      </div>
     </motion.div>
   );
 };

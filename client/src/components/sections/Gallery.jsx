@@ -4,6 +4,7 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { galleryImages, categories } from '../../data/gallery';
 import { staggerContainer, staggerItem } from '../../utils/animations';
+import './Gallery.css';
 
 /**
  * Image Grid component for the gallery
@@ -11,7 +12,7 @@ import { staggerContainer, staggerItem } from '../../utils/animations';
 const ImageGrid = ({ images, onImageClick }) => {
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      className="imageGrid"
       variants={staggerContainer}
       initial="initial"
       animate="animate"
@@ -20,7 +21,7 @@ const ImageGrid = ({ images, onImageClick }) => {
         <motion.div
           key={image.id}
           variants={staggerItem}
-          className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[4/3]"
+          className="imageItem"
           onClick={() => onImageClick(index)}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
@@ -30,26 +31,26 @@ const ImageGrid = ({ images, onImageClick }) => {
             src={image.src}
             alt={image.alt}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="image"
           />
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-              <h3 className="text-white text-xl font-serif font-semibold mb-2">
+          <div className="imageOverlay">
+            <div className="imageInfo">
+              <h3 className="imageTitle">
                 {image.title}
               </h3>
-              <p className="text-gray-300 text-sm uppercase tracking-wider">
+              <p className="imageLocation">
                 {image.location}
               </p>
             </div>
           </div>
 
           {/* View Icon */}
-          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-10 h-10 rounded-full bg-[#d4af37]/90 flex items-center justify-center">
+          <div className="viewIcon">
+            <div className="iconCircle">
               <svg
-                className="w-5 h-5 text-[#0a0a0a]"
+                className="icon"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -99,27 +100,27 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="section-padding bg-[#0a0a0a]">
-      <div className="container mx-auto">
+    <section id="gallery" className="gallery">
+      <div className="container">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-12"
+          className="sectionHeader"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient mb-4">
+          <h2 className="title">
             Portfolio
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="description">
             A curated collection of my finest work, capturing moments that tell compelling stories.
           </p>
         </motion.div>
 
         {/* Filter Tabs */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="filterTabs"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -129,16 +130,16 @@ const Gallery = () => {
             <motion.button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`filterButton ${
                 selectedCategory === category.id
-                  ? 'bg-[#d4af37] text-[#0a0a0a]'
-                  : 'bg-white/5 text-white hover:bg-white/10'
+                  ? 'filterButtonActive'
+                  : 'filterButtonInactive'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
               {category.name}
-              <span className="ml-2 text-sm opacity-70">({category.count})</span>
+              <span className="filterCount">({category.count})</span>
             </motion.button>
           ))}
         </motion.div>
@@ -159,11 +160,11 @@ const Gallery = () => {
         {/* Empty State */}
         {filteredImages.length === 0 && (
           <motion.div
-            className="text-center py-20"
+            className="emptyState"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <p className="text-gray-400 text-lg">No images found in this category.</p>
+            <p className="emptyText">No images found in this category.</p>
           </motion.div>
         )}
       </div>

@@ -1,0 +1,119 @@
+/* Hero Section Styles */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}
+
+.grainPattern {
+  position: absolute;
+  inset: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.titleLetter {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d677 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.taglineContainer {
+  height: 3rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.tagline {
+  font-size: clamp(1.25rem, 4vw, 1.875rem);
+  color: #d1d5db;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.ctaButton {
+  padding: 1rem 2rem;
+  background-color: #d4af37;
+  color: #0a0a0a;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.ctaButton:hover {
+  background-color: #c4a037;
+  transform: scale(1.05);
+}
+
+.ctaButton:active {
+  transform: scale(0.98);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.scrollContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollText {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.scrollIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #d4af37;
+}

@@ -1,0 +1,172 @@
+/* Footer Component Styles */
+
+.footer {
+  background-color: #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 3rem 2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.brandTitle {
+  font-size: 1.25rem;
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d677 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .brandTitle {
+    font-size: 1.5rem;
+  }
+}
+
+.brandDescription {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  color: #d4af37;
+}
+
+.socialIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkItem {
+  margin-bottom: 0.5rem;
+}
+
+.link {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link:hover {
+  color: #d4af37;
+}
+
+.contactInfo {
+  color: #9ca3af;
+}
+
+.contactInfo p {
+  margin-bottom: 0.5rem;
+}
+
+.contactLabel {
+  color: white;
+}
+
+.contactLink {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.contactLink:hover {
+  color: #d4af37;
+}
+
+.bottomBar {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .bottomContent {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.copyright {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.legalLink {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.legalLink:hover {
+  color: #d4af37;
+}

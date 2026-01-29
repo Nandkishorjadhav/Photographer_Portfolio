@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { scrollToElement } from '../../utils/helpers';
+import './Hero.css';
 
 /**
  * Hero Section with cinematic effect
@@ -29,11 +30,11 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="hero"
     >
       {/* Background Image with Ken Burns effect */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
+        className="background"
         style={{
           backgroundImage: 'url(https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80)',
         }}
@@ -43,17 +44,17 @@ const Hero = () => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="overlay" />
 
       {/* Grain Overlay */}
-      <div className="absolute inset-0 opacity-30 mix-blend-overlay">
-        <div className="absolute inset-0" style={{
+      <div className="grain">
+        <div className="grainPattern" style={{
           backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=)',
         }} />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
+      <div className="content">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,16 +62,16 @@ const Hero = () => {
         >
           {/* Main Title with staggered animation */}
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6"
+            className="title"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <span className="inline-block">
+            <span>
               {['स', 'ई', ' ', 'P', 'H', 'O', 'T', 'O', 'G', 'R', 'A', 'P', 'H', 'Y'].map((letter, index) => (
                 <motion.span
                   key={index}
-                  className="inline-block text-gradient"
+                  className="titleLetter"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.05 }}
@@ -82,10 +83,10 @@ const Hero = () => {
           </motion.h1>
 
           {/* Rotating Tagline */}
-          <div className="h-12 mb-8 overflow-hidden">
+          <div className="taglineContainer">
             <motion.p
               key={currentTagline}
-              className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light tracking-wider"
+              className="tagline"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -98,7 +99,7 @@ const Hero = () => {
           {/* CTA Button */}
           <motion.button
             onClick={handleScrollClick}
-            className="px-8 py-4 bg-[#d4af37] text-[#0a0a0a] font-semibold text-lg rounded-lg hover:bg-[#c4a037] transition-all duration-300"
+            className="ctaButton"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 1.5 }}
@@ -111,7 +112,7 @@ const Hero = () => {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="scrollIndicator"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 10, 0] }}
           transition={{ 
@@ -119,10 +120,10 @@ const Hero = () => {
             y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
           }}
         >
-          <div className="flex flex-col items-center cursor-pointer" onClick={handleScrollClick}>
-            <span className="text-gray-400 text-sm mb-2 tracking-wider">Scroll to explore</span>
+          <div className="scrollContent" onClick={handleScrollClick}>
+            <span className="scrollText">Scroll to explore</span>
             <svg 
-              className="w-6 h-6 text-[#d4af37]" 
+              className="scrollIcon"
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"

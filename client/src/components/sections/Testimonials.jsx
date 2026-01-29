@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonials } from '../../data/testimonials';
+import './Testimonials.css';
 
 /**
  * Testimonials Section with slider

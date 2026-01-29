@@ -1,0 +1,93 @@
+/* Button Component Styles */
+
+.button {
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 3px #0a0a0a, 0 0 0 5px #d4af37;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background: linear-gradient(135deg, #d4af37 0%, #c4a037 100%);
+  color: #0a0a0a;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+
+.primary:hover:not(:disabled) {
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+}
+
+.secondary {
+  background-color: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #d4af37;
+  color: #0a0a0a;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+
+.ghost {
+  background-color: transparent;
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sizes */
+.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+/* Shimmer effect */
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-200%);
+  transition: transform 1s ease;
+}
+
+.button:hover .shimmer {
+  transform: translateX(200%);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}

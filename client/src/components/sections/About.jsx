@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import './About.css';
 
 /**
  * About Section - Personal connection with the photographer

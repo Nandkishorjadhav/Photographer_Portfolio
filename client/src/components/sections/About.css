@@ -1,0 +1,170 @@
+/* About Section Styles */
+
+.about {
+  padding: 5rem 1.5rem;
+  background-color: #121212;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+.imageColumn {
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+}
+
+.imageWrapper:hover .image {
+  filter: grayscale(0);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.statsCard {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  max-width: 20rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.contentColumn {
+  /* Content column styles */
+}
+
+.title {
+  font-size: clamp(1.875rem, 5vw, 3rem);
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d677 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.textContent {
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+.textContent p {
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.highlight {
+  color: white;
+  font-weight: 600;
+}
+
+.quote {
+  border-left: 4px solid #d4af37;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #9ca3af;
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.achievementCard {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.achievementCard:hover {
+  transform: scale(1.05);
+}
+
+.achievementTitle {
+  color: #d4af37;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.achievementText {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.ctaSection {
+  margin-top: 2rem;
+}
+
+.ctaLink {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #d4af37;
+  color: #0a0a0a;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.ctaLink:hover {
+  background-color: #c4a037;
+  transform: scale(1.05);
+}

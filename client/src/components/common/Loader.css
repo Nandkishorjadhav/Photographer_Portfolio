@@ -1,0 +1,40 @@
+/* Loader Component Styles */
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+}
+
+.spinner {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+}
+
+.spinnerRing {
+  position: absolute;
+  inset: 0;
+  border: 4px solid rgba(212, 175, 55, 0.2);
+  border-radius: 50%;
+}
+
+.spinnerBorder {
+  position: absolute;
+  inset: 0;
+  border: 4px solid transparent;
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
